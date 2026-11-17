@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>deck school</title>
+<meta name="description" content="Learn to DJ in your browser: a two-deck simulator with step-by-step lessons, from your first beatmatch to full transitions.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div class="brand"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="13" cy="19" r="7" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="13" cy="19" r="1.7" fill="currentColor"/><rect x="20" y="3" width="4" height="25" rx="2" fill="currentColor"/></svg><span>deck school</span></div>
+    <button class="btn tb" id="btn-lessons">LESSONS</button>
+    <span class="grow"></span>
+    <span class="tb-label">MASTER</span><div class="meter" id="master-meter"><i></i></div>
+    <span class="tb-sep"></span>
+    <span class="tb-label">HEADPHONES</span><div id="hp"></div>
+    <span class="tb-sep"></span>
+    <span class="tb-label">OUTPUT</span><select id="out" data-t="out" aria-label="Audio output setup"></select>
+    <span class="tb-sep"></span>
+    <span id="clock"></span>
+  </header>
+
+  <section id="rhythm" data-t="rhythm"><canvas id="rhythm-canvas"></canvas></section>
+
+  <section id="decks">
+    <div class="deck" id="deck-0"></div>
+    <div id="mixer"></div>
+    <div class="deck" id="deck-1"></div>
+  </section>
+
+  <section id="browser">
+    <aside id="folders">
+      <div class="folder sel" data-f="crate"><span class="fi a"></span>Practice Crate</div>
+      <div class="folder" data-f="local"><span class="fi b"></span>Local Music<span id="local-count"></span></div>
+      <button class="btn" id="add-files">+ Add your own files</button>
+      <input type="file" id="file-input" accept="audio/*" multiple hidden>
+    </aside>
+    <main id="files" data-t="browser">
+      <div class="search"><svg viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.5"/></svg><input id="search" placeholder="Search" aria-label="Search tracks"><span id="file-count"></span></div>
+      <table><thead><tr><th></th><th>Title</th><th>Artist</th><th class="num">BPM</th><th class="num">Key</th><th class="num">Length</th></tr></thead><tbody></tbody></table>
+    </main>
+    <aside id="lesson" aria-live="polite"></aside>
+  </section>
+</div>
+
+<div id="callout" hidden></div>
+<div id="overlay"></div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
